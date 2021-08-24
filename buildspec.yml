@@ -47,4 +47,3 @@ env:
     JWT_SECRET: JWT_SECRET
     Name: JWT_SECRET
     Value: myjwtsecret
-    Type: SECURE STRING
