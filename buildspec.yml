@@ -26,6 +26,8 @@ phases:
         - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' simple_jwt_api.yml
         - $(aws ecr get-login --no-include-email)
         - export KUBECONFIG=$HOME/.kube/config
+        - kubelet-client-certificate=/etc/kubernetes/pki/apiserver-kubelet-client.crt
+        - kubelet-client-key=/etc/kubernetes/pki/apiserver-kubelet-client.key
   build:
     commands:
       - docker build --tag $REPOSITORY_URI:$TAG .
