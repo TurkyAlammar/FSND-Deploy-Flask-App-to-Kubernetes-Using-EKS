@@ -8,9 +8,9 @@ import pytest
 import main
 
 SECRET = 'TestSecret'
-TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzA4MDMxNDksIm5iZiI6MTYyOTU5MzU0OSwiZW1haWwiOiJKYWxhbEFsN21hckB0dXJreS5hbDdsb28ifQ.6Hmw3iPmTmX60rrYKw9tbuJ8AlqVGzq3teU4cgBMpDs'
-EMAIL = 'JalalAl7mar@turky.al7loo'
-PASSWORD = 'jlo'
+TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjEzMDY3OTAsIm5iZiI6MTU2MDA5NzE5MCwiZW1haWwiOiJ3b2xmQHRoZWRvb3IuY29tIn0.IpM4VMnqIgOoQeJxUbLT-cRcAjK41jronkVrqRLFmmk'
+EMAIL = 'wolf@thedoor.com'
+PASSWORD = 'huff-puff'
 
 @pytest.fixture
 def client():
@@ -26,7 +26,7 @@ def test_health(client):
     response = client.get('/')
     assert response.status_code == 200
     assert response.json == 'Healthy'
-    # assert False
+
 
 def test_auth(client):
     body = {'email': EMAIL,
@@ -38,5 +38,3 @@ def test_auth(client):
     assert response.status_code == 200
     token = response.json['token']
     assert token is not None
-
-
